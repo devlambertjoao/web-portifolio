@@ -1,19 +1,22 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Header from '../components/header'
-import styles from '../styles/Home.module.scss'
+import S from '../styles/Home.module.scss'
 
 const Home: NextPage = () => {
   return (
-    <div className={styles.container}>
+    <div className={S.container}>
       <Head>
         <title>Coffee Dev </title>
         <meta name="description" content="The Coffee Developer Portifolio" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
+      <main className={S.main}>
         <Header />
+        <div className={S.content}>
+          testing
+        </div>
       </main>
     </div>
   )

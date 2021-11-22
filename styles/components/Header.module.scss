@@ -1,0 +1,45 @@
+.container {
+    display: flex;
+    background-color: #cc0041;
+    color: whitesmoke;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    justify-content: space-between;
+    padding-bottom: 1em;
+    align-items: center;
+    flex-direction: column;
+    height: 5em;
+
+    h1 {
+        flex-grow: 1;
+        margin: 0px;
+    }
+
+    section {
+        display: flex;
+    }
+
+    nav {
+        margin-right: 2em;
+        a {
+            text-transform: uppercase;
+            margin-left: 1em;
+            cursor: pointer;
+        }
+    }
+
+    @media screen and (min-width: 768px) {
+        flex-direction: row;
+        padding: 1em 2em;
+    }
+}
+
+.active {
+    background-color: whitesmoke;
+    color: #cc0041;
+    border-radius: 5px;
+    padding: 0.25em;
+    box-shadow: 1px 1px 1px 1px rgb(0 0 0 / 15%);
+}

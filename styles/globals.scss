@@ -21,3 +21,13 @@ a {
 * {
   box-sizing: border-box;
 }
+
+button {
+  border: none;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 1px 1px 1px 1px rgb(0 0 0 / 15%);
+}
