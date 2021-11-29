@@ -1,6 +1,5 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import Header from '../components/header'
 import S from '../styles/Home.module.scss'
 
 const Home: NextPage = () => {
@@ -13,7 +12,6 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={S.main}>
-        <Header />
         <div className={S.content}>
           testing
         </div>

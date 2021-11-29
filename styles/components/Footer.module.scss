@@ -1,0 +1,58 @@
+.container {
+    display: flex;
+    background-color: #cc0041;
+    color: whitesmoke;
+    align-items: baseline;
+    justify-content: center;
+    padding: 1em;
+    flex-direction: column;
+
+    nav {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        a {
+            display: flex;
+            align-items: center;
+        }
+    }
+
+    section {
+        flex: 1;
+        margin-bottom: 1em;
+    }
+
+    @media screen and (min-width: 768px) {
+        flex-direction: row;
+
+        .infoTextContainer {
+            padding: 0 1em;
+        }
+    }
+}
+.infoTextContainer {
+    flex: 2 !important;
+}
+
+.iconMargin {
+    margin-right: 0.5em;
+}
+
+.contactsContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.contactsContainerItem {
+    display: flex;
+    align-items: center;
+
+    @extend .itemMb
+}
+
+.itemMb {
+    margin-bottom: 0.5em;
+}
