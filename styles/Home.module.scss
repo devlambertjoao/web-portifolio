@@ -1,11 +1,30 @@
 .container {
-  padding: 0 2rem;
 }
 
 .main {
   display: flex;
+  flex-direction: column;
 }
 
 .content {
-  margin-top: 5em;
+  padding: 1rem 2rem;
+}
+
+.coverContainer {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.coverImage {
+  filter: blur(2px) !important;
+  -webkit-filter: blur(2px) !important;
+}
+
+.profileImage {
+  border-radius: 50%;
+  border: 0.25em solid whitesmoke !important;
+  padding: 0.25em !important;
 }

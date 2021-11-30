@@ -11,6 +11,8 @@
     align-items: center;
     flex-direction: column;
     height: 5em;
+    z-index: 1000;
+    opacity: 0.98;
 
     h1 {
         flex-grow: 1;
