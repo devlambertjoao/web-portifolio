@@ -4,10 +4,28 @@ import Image from "next/image";
 import S from "../styles/Home.module.scss";
 import coverImage from "../public/assets/cover.png";
 import profileImage from "../public/assets/profile.png";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import Pageable from "../models/Pageable";
+import Post from "../models/Post";
+import useFetch from "../hooks/useFetchPosts";
+
+interface State {
+  posts?: Pageable<Post>;
+}
+
+const initialState: State = {};
 
 const Home: NextPage = () => {
   const coverRef = useRef<HTMLDivElement>(null);
+
+  const posts = useFetch<Pageable<Post>>("api/posts");
+  const [state, setState] = useState(initialState);
+
+  useEffect(() => {
+    setState((s) => {
+      return { ...s, posts };
+    });
+  }, [posts]);
 
   const handleScroll = () => {
     if (coverRef.current)
@@ -48,114 +66,11 @@ const Home: NextPage = () => {
           />
         </div>
         <div className={S.content}>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime quam
-          veritatis sed eum sequi veniam, error, repudiandae consectetur
-          voluptatem voluptatibus doloremque ex dolorum, natus quo odit iusto
-          ratione facere vitae.<br></br>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime quam
-          veritatis sed eum sequi veniam, error, repudiandae consectetur
-          voluptatem voluptatibus doloremque ex dolorum, natus quo odit iusto
-          ratione facere vitae.<br></br>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime quam
-          veritatis sed eum sequi veniam, error, repudiandae consectetur
-          voluptatem voluptatibus doloremque ex dolorum, natus quo odit iusto
-          ratione facere vitae.<br></br>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime quam
-          veritatis sed eum sequi veniam, error, repudiandae consectetur
-          voluptatem voluptatibus doloremque ex dolorum, natus quo odit iusto
-          ratione facere vitae.<br></br>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime quam
-          veritatis sed eum sequi veniam, error, repudiandae consectetur
-          voluptatem voluptatibus doloremque ex dolorum, natus quo odit iusto
-          ratione facere vitae.<br></br>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime quam
-          veritatis sed eum sequi veniam, error, repudiandae consectetur
-          voluptatem voluptatibus doloremque ex dolorum, natus quo odit iusto
-          ratione facere vitae.<br></br>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime quam
-          veritatis sed eum sequi veniam, error, repudiandae consectetur
-          voluptatem voluptatibus doloremque ex dolorum, natus quo odit iusto
-          ratione facere vitae.<br></br>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime quam
-          veritatis sed eum sequi veniam, error, repudiandae consectetur
-          voluptatem voluptatibus doloremque ex dolorum, natus quo odit iusto
-          ratione facere vitae.<br></br>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime quam
-          veritatis sed eum sequi veniam, error, repudiandae consectetur
-          voluptatem voluptatibus doloremque ex dolorum, natus quo odit iusto
-          ratione facere vitae.<br></br>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime quam
-          veritatis sed eum sequi veniam, error, repudiandae consectetur
-          voluptatem voluptatibus doloremque ex dolorum, natus quo odit iusto
-          ratione facere vitae.<br></br>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime quam
-          veritatis sed eum sequi veniam, error, repudiandae consectetur
-          voluptatem voluptatibus doloremque ex dolorum, natus quo odit iusto
-          ratione facere vitae.<br></br>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime quam
-          veritatis sed eum sequi veniam, error, repudiandae consectetur
-          voluptatem voluptatibus doloremque ex dolorum, natus quo odit iusto
-          ratione facere vitae.<br></br>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime quam
-          veritatis sed eum sequi veniam, error, repudiandae consectetur
-          voluptatem voluptatibus doloremque ex dolorum, natus quo odit iusto
-          ratione facere vitae.<br></br>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime quam
-          veritatis sed eum sequi veniam, error, repudiandae consectetur
-          voluptatem voluptatibus doloremque ex dolorum, natus quo odit iusto
-          ratione facere vitae.<br></br>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime quam
-          veritatis sed eum sequi veniam, error, repudiandae consectetur
-          voluptatem voluptatibus doloremque ex dolorum, natus quo odit iusto
-          ratione facere vitae.<br></br>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime quam
-          veritatis sed eum sequi veniam, error, repudiandae consectetur
-          voluptatem voluptatibus doloremque ex dolorum, natus quo odit iusto
-          ratione facere vitae.<br></br>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime quam
-          veritatis sed eum sequi veniam, error, repudiandae consectetur
-          voluptatem voluptatibus doloremque ex dolorum, natus quo odit iusto
-          ratione facere vitae.<br></br>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime quam
-          veritatis sed eum sequi veniam, error, repudiandae consectetur
-          voluptatem voluptatibus doloremque ex dolorum, natus quo odit iusto
-          ratione facere vitae.<br></br>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime quam
-          veritatis sed eum sequi veniam, error, repudiandae consectetur
-          voluptatem voluptatibus doloremque ex dolorum, natus quo odit iusto
-          ratione facere vitae.<br></br>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime quam
-          veritatis sed eum sequi veniam, error, repudiandae consectetur
-          voluptatem voluptatibus doloremque ex dolorum, natus quo odit iusto
-          ratione facere vitae.<br></br>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime quam
-          veritatis sed eum sequi veniam, error, repudiandae consectetur
-          voluptatem voluptatibus doloremque ex dolorum, natus quo odit iusto
-          ratione facere vitae.<br></br>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime quam
-          veritatis sed eum sequi veniam, error, repudiandae consectetur
-          voluptatem voluptatibus doloremque ex dolorum, natus quo odit iusto
-          ratione facere vitae.<br></br>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime quam
-          veritatis sed eum sequi veniam, error, repudiandae consectetur
-          voluptatem voluptatibus doloremque ex dolorum, natus quo odit iusto
-          ratione facere vitae.<br></br>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime quam
-          veritatis sed eum sequi veniam, error, repudiandae consectetur
-          voluptatem voluptatibus doloremque ex dolorum, natus quo odit iusto
-          ratione facere vitae.<br></br>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime quam
-          veritatis sed eum sequi veniam, error, repudiandae consectetur
-          voluptatem voluptatibus doloremque ex dolorum, natus quo odit iusto
-          ratione facere vitae.<br></br>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime quam
-          veritatis sed eum sequi veniam, error, repudiandae consectetur
-          voluptatem voluptatibus doloremque ex dolorum, natus quo odit iusto
-          ratione facere vitae.<br></br>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime quam
-          veritatis sed eum sequi veniam, error, repudiandae consectetur
-          voluptatem voluptatibus doloremque ex dolorum, natus quo odit iusto
-          ratione facere vitae.<br></br>
+          {state.posts?.content.map((post) => (
+            <h2 key={post.id}>
+              <span>{post.title}</span>
+            </h2>
+          ))}
         </div>
       </main>
     </div>
