@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 const useFetch = <T>(url: string): T => {
-  const [data, setData] = useState<T>({} as T);
+  const [data, setData] = useState<T>();
 
   useEffect(() => {
     if (!url) return;
@@ -15,7 +15,7 @@ const useFetch = <T>(url: string): T => {
     fetchData();
   }, [url]);
 
-  return data;
+  return data as T;
 };
 
 export default useFetch;
