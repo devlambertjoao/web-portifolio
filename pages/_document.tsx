@@ -16,7 +16,7 @@ export default class Document extends NextDocument {
             rel="stylesheet"
           />
           <link
-            href="https://fonts.googleapis.com/css2?family=Material+Icons&display=optional"
+            href="https://fonts.googleapis.com/css2?family=Material+Icons"
             rel="stylesheet"
           />
         </Head>
@@ -28,4 +28,3 @@ export default class Document extends NextDocument {
     );
   }
 }
-
