@@ -28,3 +28,52 @@
   border: 0.25em solid whitesmoke !important;
   padding: 0.25em !important;
 }
+
+.postListContainer {
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+}
+
+.postContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.postTitle {
+  font-size: 2em;
+  text-transform: uppercase;
+}
+
+.postContent {
+  display: flex;
+  flex-direction: row;
+  margin-top: .5em;
+}
+
+.imageContainer {
+  flex-grow: 1;
+  min-width: 30%;
+  max-width: 30%;
+}
+
+.postDescription {
+  margin-left: .5em;
+  font-size: 1.5em;
+}
+
+
+@media screen and (min-width: 1024px) {
+  .postListContainer {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .postContainer {
+    width: calc(50% - 10px);
+  }
+
+  .postDescriptionContainer {
+    flex-grow: 1;
+  }
+}

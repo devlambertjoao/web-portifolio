@@ -4,28 +4,15 @@ import Image from "next/image";
 import S from "../styles/Home.module.scss";
 import coverImage from "../public/assets/cover.png";
 import profileImage from "../public/assets/profile.png";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import Pageable from "../models/Pageable";
 import Post from "../models/Post";
 import useFetch from "../hooks/useFetchPosts";
-
-interface State {
-  posts?: Pageable<Post>;
-}
-
-const initialState: State = {};
 
 const Home: NextPage = () => {
   const coverRef = useRef<HTMLDivElement>(null);
 
   const posts = useFetch<Pageable<Post>>("api/posts");
-  const [state, setState] = useState(initialState);
-
-  useEffect(() => {
-    setState((s) => {
-      return { ...s, posts };
-    });
-  }, [posts]);
 
   const handleScroll = () => {
     if (coverRef.current)
@@ -66,11 +53,27 @@ const Home: NextPage = () => {
           />
         </div>
         <div className={S.content}>
-          {state.posts?.content.map((post) => (
-            <h2 key={post.id}>
-              <span>{post.title}</span>
-            </h2>
-          ))}
+          <div className={S.postListContainer}>
+            {posts?.content.map((post) => (
+              <div key={post.id} className={S.postContainer}>
+                <span className={S.postTitle}>{post.title}</span>
+                <div className={S.postContent}>
+                  <div className={S.imageContainer}>
+                    <Image
+                      src={post.image}
+                      alt={`Image of post: ${post.title}`}
+                      layout="responsive"
+                      width="100"
+                      height="100"
+                    />
+                  </div>
+                  <div className={S.postDescriptionContainer}>
+                    <span className={S.postDescription}>{post.description}</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </main>
     </div>
